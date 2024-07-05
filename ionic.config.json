@@ -1,0 +1,7 @@
+{
+  "name": "ConserAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
