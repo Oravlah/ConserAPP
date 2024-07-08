@@ -1,0 +1,27 @@
+<ion-content>
+  <div class="background-image"></div>
+  <div class="content">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-img src="/assets/img/Logo.jpg" class="logo"></ion-img>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input [(ngModel)]="nombre" name="nombre" label="Nombre de usuario" labelPlacement="floating" placeholder="Ej: Juan.." required></ion-input>
+          <ion-label *ngIf="nombreErrors.length > 0" color="danger">{{ nombreErrors }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="email" name="email" label="Email" labelPlacement="floating" placeholder="Ej: Juan@gmail.com.." required type="email"></ion-input>
+          <ion-label *ngIf="emailErrors.length > 0" color="danger">{{ emailErrors }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="password" name="password" label="Contraseña" labelPlacement="floating" placeholder="Ej: 1234.." required type="password"></ion-input>
+          <ion-label *ngIf="passwordErrors.length > 0" color="danger">{{ passwordErrors }}</ion-label>
+        </ion-item>
+        <ion-checkbox [(ngModel)]="aceptoTerminos" name="aceptoTerminos">Acepto términos y condiciones</ion-checkbox>
+        <br>
+        <ion-button color="secondary" (click)="registrarUsuario()" [disabled]="!formularioValido()">Registrarse</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
