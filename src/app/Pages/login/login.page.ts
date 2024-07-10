@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,11 @@ export class LoginPage implements OnInit {
   passwordErrors: string = '';
   aceptoTerminos: boolean = false;
 
-  constructor(private usuarioService: UsuarioService, private alertController: AlertController) { }
+  constructor(
+    private usuarioService: UsuarioService,
+    private alertController: AlertController,
+    private router: Router
+  ) { }
 
   ngOnInit() { }
 
@@ -54,6 +59,7 @@ export class LoginPage implements OnInit {
       const usuarioValido = usuarios.find(u => (u.nombre === this.nombre || u.email === this.nombre) && u.contraseña === this.password);
       if (usuarioValido) {
         this.presentAlert('Éxito', 'Inicio de sesión correcto.');
+        this.router.navigate(['/inicio']); // Redirigir a la página de inicio
       } else {
         this.presentAlert('Error', 'El nombre de usuario, email o contraseña no son correctos.');
       }
