@@ -92,3 +92,13 @@ ion-checkbox::part(container) {
   font-size: 12px;
   text-align: left;
 }
+
+/* CSS para el botón de navegación */
+.login-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  --background: transparent;
+  --color: white;
+}

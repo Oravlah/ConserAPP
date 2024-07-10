@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterPage implements OnInit {
   emailErrors: string = '';
   passwordErrors: string = '';
 
-  constructor(private usuarioService: UsuarioService, private alertController: AlertController) { }
+  constructor(private usuarioService: UsuarioService, private alertController: AlertController, private router: Router) { }
 
   ngOnInit() { }
 
@@ -26,6 +27,12 @@ export class RegisterPage implements OnInit {
       this.nombreErrors = '• Debe ingresar un nombre de usuario.';
     } else if (this.nombre.length < 4 || this.nombre.length > 15) {
       this.nombreErrors = '• El nombre de usuario debe tener entre 4 y 15 caracteres.';
+    } else {
+      this.usuarioService.getUsuarios().subscribe(usuarios => {
+        if (usuarios.some(u => u.nombre === this.nombre)) {
+          this.nombreErrors = '• El nombre de usuario ya está en uso.';
+        }
+      });
     }
   }
 
@@ -35,8 +42,13 @@ export class RegisterPage implements OnInit {
       this.emailErrors = '• Debe ingresar un email.';
     } else if (this.email.length < 6 || this.email.length > 35) {
       this.emailErrors = '• El email debe tener entre 6 y 35 caracteres.';
+    } else {
+      this.usuarioService.getUsuarios().subscribe(usuarios => {
+        if (usuarios.some(u => u.email === this.email)) {
+          this.emailErrors = '• El email ya está en uso.';
+        }
+      });
     }
-    // Puedes añadir más validaciones de formato de email si es necesario
   }
 
   validarPassword() {
@@ -56,9 +68,9 @@ export class RegisterPage implements OnInit {
       return;
     }
 
-    const nombreValido = this.validarNombre();
-    const emailValido = this.validarEmail();
-    const passwordValido = this.validarPassword();
+    this.validarNombre();
+    this.validarEmail();
+    this.validarPassword();
 
     if (this.nombreErrors || this.emailErrors || this.passwordErrors) {
       return; // Si hay errores, no procedemos con el registro
@@ -119,6 +131,13 @@ export class RegisterPage implements OnInit {
     return this.nombre.length > 0 &&
            this.email.length > 0 &&
            this.password.length > 0 &&
-           this.aceptoTerminos;
+           this.aceptoTerminos &&
+           !this.nombreErrors &&
+           !this.emailErrors &&
+           !this.passwordErrors;
+  }
+
+  irALogin() {
+    this.router.navigate(['/login']);
   }
 }
