@@ -45,7 +45,14 @@ ion-content {
 }
 
 ion-item {
-  margin-bottom: 15px; /* Espacio entre elementos */
+  margin-bottom: 5px; /* Espacio entre elementos ajustado */
+}
+
+.error-label {
+  display: block;
+  margin-top: -10px; /* Ajusta según sea necesario */
+  margin-bottom: 15px; /* Espacio entre el mensaje de error y el siguiente campo */
+  text-align: left; /* Alineación del texto a la izquierda */
 }
 
 /* Estilos para el ion-checkbox */
@@ -71,4 +78,17 @@ ion-checkbox::part(container) {
     max-width: none; /* Quitamos el ancho máximo para adaptarse mejor */
     margin-top: 50px; /* Ajustamos el margen superior para dispositivos móviles */
   }
+}
+
+
+/* CSS para los mensajes de error */
+.error-label {
+  display: block;
+  color: #ffffff;
+  background-color: #f53d3d;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: left;
 }

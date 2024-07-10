@@ -20,6 +20,36 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() { }
 
+  validarNombre() {
+    this.nombreErrors = '';
+    if (!this.nombre) {
+      this.nombreErrors = '• Debe ingresar un nombre de usuario.';
+    } else if (this.nombre.length < 4 || this.nombre.length > 15) {
+      this.nombreErrors = '• El nombre de usuario debe tener entre 4 y 15 caracteres.';
+    }
+  }
+
+  validarEmail() {
+    this.emailErrors = '';
+    if (!this.email) {
+      this.emailErrors = '• Debe ingresar un email.';
+    } else if (this.email.length < 6 || this.email.length > 35) {
+      this.emailErrors = '• El email debe tener entre 6 y 35 caracteres.';
+    }
+    // Puedes añadir más validaciones de formato de email si es necesario
+  }
+
+  validarPassword() {
+    this.passwordErrors = '';
+    if (!this.password) {
+      this.passwordErrors = '• Debe ingresar una contraseña.';
+    } else if (this.password.length < 6 || this.password.length > 18) {
+      this.passwordErrors = '• La contraseña debe tener entre 6 y 18 caracteres.';
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(this.password)) {
+      this.passwordErrors = '• La contraseña debe contener al menos un caracter especial.';
+    }
+  }
+
   async registrarUsuario() {
     if (!this.aceptoTerminos) {
       this.presentAlert('Error', 'Debe aceptar los términos y condiciones.');
@@ -30,7 +60,7 @@ export class RegisterPage implements OnInit {
     const emailValido = this.validarEmail();
     const passwordValido = this.validarPassword();
 
-    if (!nombreValido || !emailValido || !passwordValido) {
+    if (this.nombreErrors || this.emailErrors || this.passwordErrors) {
       return; // Si hay errores, no procedemos con el registro
     }
 
@@ -65,38 +95,6 @@ export class RegisterPage implements OnInit {
     );
   }
 
-  validarNombre(): boolean {
-    this.nombreErrors = '';
-    if (this.nombre.length < 4 || this.nombre.length > 15) {
-      this.nombreErrors = 'El nombre de usuario debe tener entre 4 y 15 caracteres.';
-      return false;
-    }
-    return true;
-  }
-
-  validarEmail(): boolean {
-    this.emailErrors = '';
-    if (this.email.length < 6 || this.email.length > 35) {
-      this.emailErrors = 'El email debe tener entre 6 y 35 caracteres.';
-      return false;
-    }
-    // Puedes añadir más validaciones de formato de email si es necesario
-    return true;
-  }
-
-  validarPassword(): boolean {
-    this.passwordErrors = '';
-    if (this.password.length < 6 || this.password.length > 18) {
-      this.passwordErrors = 'La contraseña debe tener entre 6 y 18 caracteres.';
-      return false;
-    }
-    if (!/[!@#$%^&*(),.?":{}|<>]/.test(this.password)) {
-      this.passwordErrors = 'La contraseña debe contener al menos un caracter especial.';
-      return false;
-    }
-    return true;
-  }
-
   async presentAlert(header: string, message: string) {
     const alert = await this.alertController.create({
       header,
@@ -121,9 +119,6 @@ export class RegisterPage implements OnInit {
     return this.nombre.length > 0 &&
            this.email.length > 0 &&
            this.password.length > 0 &&
-           this.aceptoTerminos &&
-           this.validarNombre() &&
-           this.validarEmail() &&
-           this.validarPassword();
+           this.aceptoTerminos;
   }
 }
