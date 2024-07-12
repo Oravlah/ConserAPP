@@ -11,6 +11,10 @@ export class VisitasService {
 
   constructor(private http: HttpClient) { }
 
+  getVisitas(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
   agregarVisita(visita: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, visita);
   }
