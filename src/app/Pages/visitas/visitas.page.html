@@ -1,0 +1,36 @@
+<ion-content class="ion-padding">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Agregar Visita</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="form__group">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" placeholder="Ingrese su nombre completo" [(ngModel)]="visita.nombre"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Departamento</ion-label>
+        <ion-input type="text" placeholder="Ingrese el número de departamento" [(ngModel)]="visita.departamento"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label>Torre</ion-label>
+        <ion-select placeholder="Seleccione" [(ngModel)]="visita.torre">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="B">B</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">RUT</ion-label>
+        <ion-input type="text" placeholder="Ingrese el RUT" [(ngModel)]="visita.rut"></ion-input>
+      </div>
+    </ion-card-content>
+
+    <ion-footer>
+      <ion-button expand="block" (click)="guardarVisita()">Guardar</ion-button>
+    </ion-footer>
+  </ion-card>
+</ion-content>

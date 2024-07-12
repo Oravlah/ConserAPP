@@ -1,32 +1,35 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menú</ion-title>
+      <div class="logo-title-container">
+        <img src="/assets/img/Logo.jpg" class="logo-img" alt="Logo">
+        <ion-title class="menu-title">Menú</ion-title>
+      </div>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/inicio" routerDirection="root">
+      <ion-item routerLink="/inicio" routerDirection="root" (click)="closeMenu()">
         <ion-icon slot="start" name="home"></ion-icon>
         Inicio
       </ion-item>
-      <ion-item routerLink="/inicio/visitas" routerDirection="root">
+      <ion-item routerLink="/inicio/visitas" routerDirection="root" (click)="closeMenu()">
         <ion-icon slot="start" name="people-circle"></ion-icon>
         Visitas
       </ion-item>
-      <ion-item routerLink="/inicio/encomiendas" routerDirection="root">
+      <ion-item routerLink="/inicio/encomiendas" routerDirection="root" (click)="closeMenu()">
         <ion-icon slot="start" name="cube"></ion-icon>
         Encomiendas
       </ion-item>
-      <ion-item routerLink="/inicio/estacionamientos" routerDirection="root">
+      <ion-item routerLink="/inicio/estacionamientos" routerDirection="root" (click)="closeMenu()">
         <ion-icon slot="start" name="car"></ion-icon>
         Estacionamientos
       </ion-item>
-      <ion-item routerLink="/inicio/espacios" routerDirection="root">
+      <ion-item routerLink="/inicio/espacios" routerDirection="root" (click)="closeMenu()">
         <ion-icon slot="start" name="business"></ion-icon>
         Espacios Comunes
       </ion-item>
-      <ion-item routerLink="/inicio/mudanzas" routerDirection="root">
+      <ion-item routerLink="/inicio/mudanzas" routerDirection="root" (click)="closeMenu()">
         <ion-icon slot="start" name="move"></ion-icon>
         Mudanzas
       </ion-item>

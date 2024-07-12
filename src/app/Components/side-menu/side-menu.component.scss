@@ -1,0 +1,19 @@
+.logo-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px; /* Ajusta según sea necesario */
+}
+
+.logo-img {
+  width: 80px; /* Ajusta el tamaño según sea necesario */
+  height: 80px; /* Ajusta el tamaño según sea necesario */
+  border-radius: 50%;
+  margin-bottom: 10px; /* Espacio entre el logo y el título */
+}
+
+.menu-title {
+  text-align: center;
+  width: 100%;
+}
