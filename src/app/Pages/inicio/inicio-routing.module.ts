@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioPage } from './inicio.page';
 
 /*
-Esta page es el tab-inicial
+Esta page es el tab-inicial o PADRE
 */
 
 const routes: Routes = [

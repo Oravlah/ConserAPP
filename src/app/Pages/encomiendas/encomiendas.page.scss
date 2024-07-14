@@ -1,0 +1,47 @@
+.custom-card {
+  max-width: 300px; /* Ancho máximo del card */
+  margin: auto; /* Centra el card horizontalmente */
+}
+
+.form__group {
+  position: relative;
+  padding: 10px 0;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: none;
+  font-size: 17px;
+  color: #333;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:focus {
+  border-bottom: 2px solid #38caef;
+}
+
+.form__label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.form__field:focus ~ .form__label,
+.form__field:valid ~ .form__label {
+  font-size: 14px;
+  top: -15px;
+  color: #38caef;
+}

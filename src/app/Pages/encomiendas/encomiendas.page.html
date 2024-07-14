@@ -1,0 +1,56 @@
+<ion-content class="ion-padding">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Agregar Encomienda</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="form__group">
+        <ion-label position="floating">Departamento</ion-label>
+        <ion-input type="text" placeholder="Ingrese el número de departamento" [(ngModel)]="encomienda.depto"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label>Torre</ion-label>
+        <ion-select placeholder="Seleccione" [(ngModel)]="encomienda.torre">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="B">B</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Nombre del Residente</ion-label>
+        <ion-input type="text" placeholder="Ingrese el nombre del residente" [(ngModel)]="encomienda.nombre_residente"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Conserje que Recibe</ion-label>
+        <ion-input type="text" placeholder="Ingrese el nombre del conserje que recibe" [(ngModel)]="encomienda.conserje_q_recibe"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Empresa que Envía</ion-label>
+        <ion-input type="text" placeholder="Ingrese la empresa que envía" [(ngModel)]="encomienda.empresa_q_envia"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Nombre del Repartidor</ion-label>
+        <ion-input type="text" placeholder="Ingrese el nombre del repartidor" [(ngModel)]="encomienda.nombre_repartidor"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">RUT del Repartidor</ion-label>
+        <ion-input type="text" placeholder="Ingrese el RUT del repartidor" [(ngModel)]="encomienda.rut_repartidor"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-textarea placeholder="Ingrese una descripción" [(ngModel)]="encomienda.descripcion"></ion-textarea>
+      </div>
+    </ion-card-content>
+
+    <ion-footer>
+      <ion-button expand="block" (click)="guardarEncomienda()">Guardar</ion-button>
+    </ion-footer>
+  </ion-card>
+</ion-content>
