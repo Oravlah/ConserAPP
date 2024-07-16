@@ -1,0 +1,41 @@
+<ion-content class="ion-padding">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Agregar Mudanza</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="form__group">
+        <ion-label position="floating">Nombre del Residente</ion-label>
+        <ion-input type="text" placeholder="Ingrese el nombre del residente" [(ngModel)]="mudanza.nombre_residente"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Departamento</ion-label>
+        <ion-input type="text" placeholder="Ingrese el número de departamento" [(ngModel)]="mudanza.depto"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label>Torre</ion-label>
+        <ion-select placeholder="Seleccione" [(ngModel)]="mudanza.torre">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="B">B</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Fecha de Mudanza</ion-label>
+        <ion-input type="text" placeholder="DD-MM-AAAA" [(ngModel)]="mudanza.fecha_mudanza"></ion-input>
+      </div>
+
+      <div class="form__group">
+        <ion-label position="floating">Hora de Mudanza</ion-label>
+        <ion-input type="text" placeholder="00:00" [(ngModel)]="mudanza.hora_mudanza"></ion-input>
+      </div>
+    </ion-card-content>
+
+    <ion-footer>
+      <ion-button expand="block" (click)="guardarMudanza()">Guardar</ion-button>
+    </ion-footer>
+  </ion-card>
+</ion-content>
